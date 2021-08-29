@@ -16,7 +16,7 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
+    // var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -80,7 +80,8 @@ class DetailPage extends StatelessWidget {
                       child: CachedNetworkImage(
                         height: 250,
                         width: 250,
-                        imageUrl: pokemonDetail['img'],
+                        imageUrl:
+                            'https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokemonDetail['num']}.png',
                         fit: BoxFit.cover,
                       ),
                     ),

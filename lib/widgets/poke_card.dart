@@ -76,9 +76,10 @@ class PokeCard extends StatelessWidget {
                       child: Hero(
                         tag: index,
                         child: CachedNetworkImage(
-                          fit: BoxFit.fitHeight,
-                          height: 120,
-                          imageUrl: pokemon!['img'],
+                          fit: BoxFit.fitWidth,
+                          height: 100,
+                          imageUrl:
+                              'https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokemon['num']}.png',
                           placeholder: (context, url) =>
                               Center(child: CircularProgressIndicator()),
                         ),

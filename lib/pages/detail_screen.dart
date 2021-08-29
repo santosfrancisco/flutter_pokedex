@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex/widgets/info_row.dart';
 import 'package:pokedex/widgets/type_pill.dart';
 
 class DetailPage extends StatelessWidget {
@@ -87,9 +88,49 @@ class DetailPage extends StatelessWidget {
                     ),
                     Expanded(
                       child: Container(
-                        child: Text(
-                          'Pokemon details',
-                          textAlign: TextAlign.center,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Column(children: [
+                            SizedBox(
+                              height: 40,
+                            ),
+                            InfoRow(
+                              label: 'Name',
+                              info: pokemonDetail['name'],
+                            ),
+                            InfoRow(
+                              label: 'Type',
+                              info: pokemonDetail['type'].join(', '),
+                            ),
+                            InfoRow(
+                              label: 'Weight',
+                              info: pokemonDetail['weight'],
+                            ),
+                            InfoRow(
+                              label: 'Height',
+                              info: pokemonDetail['height'],
+                            ),
+                            InfoRow(
+                              label: 'Spawn time',
+                              info: pokemonDetail['spawn_time'],
+                            ),
+                            InfoRow(
+                              label: 'Weaknesses',
+                              info: pokemonDetail['weaknesses'].join(', '),
+                            ),
+                            InfoRow(
+                              label: 'Previous',
+                              info: pokemonDetail['prev_evolution'] != null
+                                  ? pokemonDetail['prev_evolution'][0]['name']
+                                  : '--',
+                            ),
+                            InfoRow(
+                              label: 'Next',
+                              info: pokemonDetail['next_evolution'] != null
+                                  ? pokemonDetail['next_evolution'][0]['name']
+                                  : '--',
+                            ),
+                          ]),
                         ),
                         width: width,
                         decoration: BoxDecoration(
